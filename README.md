@@ -2,7 +2,7 @@
 
 There's no exact timeline because things may take longer or shorter and thats ok.
 
-## Phase 1 - Reveal
+### Phase 1 - Reveal
 
 - Aim for small scope
   - 5-10mins gameplay tops
@@ -10,14 +10,14 @@ There's no exact timeline because things may take longer or shorter and thats ok
  - write everything down. We may come back to it later. This is a time for "yes and" instead of "no but"
 - build a quick and dirty prototype to test core mechanic asap
 
-## Phase 2 - Doing the Idea Dance
+### Phase 2 - Doing the Idea Dance
 
 - Make the idea more solid.
   - Write down Must-haves vs Nice-to-haves
 - Keep end goal in mind and start core work
 - Ignore Nice-to-haves for a couple of days
 
-## Phase 3 - A Build Emerges
+### Phase 3 - A Build Emerges
 
 - Find that "Aha!" or "Haha" moment in the gameplay
   - hopefully within the first 60 seconds of gameplay
@@ -25,7 +25,7 @@ There's no exact timeline because things may take longer or shorter and thats ok
   - Take shortcuts! Ignore code quality; Game Jams are messy/chaotic.
 - Once most must-haves are done we create a build and put it on itch.io
 
-## Phase 4 - Export & Polish
+### Phase 4 - Export & Polish
 
 - Pile-on! Everyone play the game on itch.io
   - Collect feedback! Everyone will notice different things
@@ -39,7 +39,7 @@ There's no exact timeline because things may take longer or shorter and thats ok
   - Controls tutorial is a nice to have
   - thumbnail for submission page
 
-## Phase 5 - Final day
+### Phase 5 - Final day
 
 - Lock down. No new features. Just make it work better.
   - Focus on stability & bugfixes.
