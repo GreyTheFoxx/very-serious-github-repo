@@ -8,13 +8,13 @@ There's no exact timeline because things may take longer or shorter and thats ok
   - 5-10mins gameplay tops
 - brainstorming/concepts (no ideas is fine) take a full day to work out what we want to make
  - write everything down. We may come back to it later. This is a time for "yes and" instead of "no but"
-- build a quick and dirty prototype to test core mechanic asap
 
 ### Phase 2 - Doing the Idea Dance
 
 - Make the idea more solid.
   - Write down Must-haves vs Nice-to-haves
 - Keep end goal in mind and start core work
+  - build a quick and dirty prototype to test core mechanic
 - Ignore Nice-to-haves for a couple of days
 
 ### Phase 3 - A Build Emerges
