@@ -1,7 +1,6 @@
 # Programmers Current Status
 
-Phase 2
-waiting for GDD/Must-haves vs Nice-to-haves doc. Try build some quick n dirty implemenations of a wheel spin mechanic in the mean time.
+Phase 2. Please do a check in on discord (see pinned comment).
 
 # Outline of the week
 
