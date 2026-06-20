@@ -1,3 +1,8 @@
+# Programmers Current Status
+
+Phase 2
+waiting for GDD/Must-haves vs Nice-to-haves doc. Try build some quick n dirty implemenations of a wheel spin mechanic in the mean time.
+
 # Outline of the week
 
 There's no exact timeline because things may take longer or shorter and thats ok. The following is a rough copy of the Juniper and TheChief video about what a general outline of a game jams looks like. This doc may update many times.
