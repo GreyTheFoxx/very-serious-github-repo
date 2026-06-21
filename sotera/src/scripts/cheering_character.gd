@@ -11,6 +11,7 @@ enum States{SIT_IDLE, MOVING_TO_TARGE_SIT, MOVING_OUT, CHEERING}
 @export var max_wait_time: int = 10 
 
 var active_state: States
+var cheering_character_spawner: Node2D
 
 func _ready() -> void:
 	active_state = States.SIT_IDLE
@@ -46,6 +47,7 @@ func move_to_next_sit() -> void:
 
 func move_out() -> void:
 	active_state = States.MOVING_OUT
+
 
 func on_move_to_target_sit() -> void:
 	pass

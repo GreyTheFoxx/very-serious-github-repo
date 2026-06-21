@@ -8,7 +8,7 @@ extends Node2D
 @export var min_starters_cheering: int = 4
 @export var max_starters_cheering: int = 10
 
-var seats: Dictionary
+var seats: Dictionary[Vector2, bool]
 var max_characters: int
 var current_character_count: int = 0
 
@@ -18,7 +18,6 @@ func _ready() -> void:
 	await get_tree().physics_frame
 	for i in range(randi_range(min_starters_cheering, max_starters_cheering)):
 		on_character_should_spawen()
-	
 
 func on_character_should_spawen() -> void:
 	print(current_character_count)
@@ -40,10 +39,13 @@ func on_character_should_spawen() -> void:
 	spawn_cheering_character(Vector2(randi_range(0, 1800), randi_range(0, 600)))
 	free_seats.erase(free_seat)
 
-
 func spawn_cheering_character(spawn_position) -> void:
 	var cheering_charcater: Node2D = cheering_character_scene.instantiate()
 	cheering_charcater.global_position = spawn_position
+	cheering_charcater.cheering_character_spawner = self
 	add_child(cheering_charcater)
 	current_character_count += 1
 	timer.wait_time = randi_range(min_wait_time, max_wait_time)
+
+func change_seat_state(seat: Vector2, is_block: bool):
+	if seat.
