@@ -23,7 +23,7 @@ func _process(_delta: float) -> void:
 		States.MOVING_TO_TARGE_SIT:
 			pass
 		States.MOVING_OUT:
-			pass
+			move_out()
 		States.CHEERING:
 			cheering()
 
