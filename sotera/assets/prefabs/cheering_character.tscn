@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c5jaxqi15oix3"]
 
 [ext_resource type="Script" uid="uid://dbap6ava46ejk" path="res://src/scripts/cheering_character.gd" id="1_amh3f"]
+[ext_resource type="Texture2D" uid="uid://k7xjblpo6fre" path="res://icon.svg" id="2_fdt2k"]
 
 [node name="CheeringCharacter" type="Node2D" unique_id=880025260]
 script = ExtResource("1_amh3f")
@@ -9,3 +10,6 @@ fun_level = 3
 [node name="Timer" type="Timer" parent="." unique_id=1928097323]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=222191372]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1816929259]
+texture = ExtResource("2_fdt2k")
