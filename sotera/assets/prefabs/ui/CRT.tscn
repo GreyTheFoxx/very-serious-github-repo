@@ -74,7 +74,7 @@ _data = {
 &"fade_to_black": SubResource("Animation_inkw7")
 }
 
-[node name="User Interface" type="Control" unique_id=719073563]
+[node name="CRT" type="Control" unique_id=719073563]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0

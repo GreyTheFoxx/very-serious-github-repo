@@ -40,7 +40,7 @@ position = Vector2(843, -38)
 rotation = -3.1415925
 shape = SubResource("WorldBoundaryShape2D_r6e8m")
 
-[node name="User Interface" parent="." unique_id=719073563 instance=ExtResource("2_olgeh")]
+[node name="CRT" parent="." unique_id=719073563 instance=ExtResource("2_olgeh")]
 offset_left = 7.0
 offset_top = -2.0
 offset_right = 1924.0
