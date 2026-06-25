@@ -22,7 +22,7 @@ size = Vector2(1920.5, 199.5)
 [node name="CRT" parent="CanvasLayer" unique_id=719073563 instance=ExtResource("6_4arlo")]
 
 [node name="Stage" type="Sprite2D" parent="." unique_id=969645194]
-position = Vector2(1056, 552.00006)
+position = Vector2(960.0001, 544)
 scale = Vector2(6.0027785, 6.0027785)
 texture = ExtResource("1_cooqm")
 
