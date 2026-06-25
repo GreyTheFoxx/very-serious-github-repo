@@ -27,7 +27,7 @@ func _on_exit_area_body_entered(body: CharacterBody2D) -> void:
 	# Disable player and exit area
 	player.visible = false
 	player.process_mode = Node.PROCESS_MODE_DISABLED
-	player.get_node("Footsteps").stop()
+	player.get_node("Footsteps").stop() # unsafe
 	
 	# Disable darkness and trigger jumpscare
 	point_light.visible = false

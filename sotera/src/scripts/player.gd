@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+
 var speed = 500
 var lastvel = Vector2.ZERO
 

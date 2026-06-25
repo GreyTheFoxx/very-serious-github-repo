@@ -20,7 +20,6 @@ stream = ExtResource("3_7i03j")
 volume_db = -0.842
 
 [node name="Jumpscare1" type="Sprite2D" parent="." unique_id=598095111]
-visible = false
 position = Vector2(960, 535)
 texture = ExtResource("2_f5mll")
 

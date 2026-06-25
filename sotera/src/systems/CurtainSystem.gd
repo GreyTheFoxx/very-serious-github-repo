@@ -92,7 +92,7 @@ func _update_full_opening_params() -> void:
 	curtain_right.position = lerp_right
 	
 func _update_full_closing_params() -> void:
-	var t: float = time / max_time
+	var t: float = 1.0 - time / max_time
 	var alpha: float = TweenUtils.ease_out_quart(t)
 	
 	var lerp_left: Vector2 = lerp(
@@ -181,3 +181,6 @@ func close_both_certains_a_little() -> void:
 	curtain_right.start_little_sound()
 	
 	_state = CurtainSystemState.CLOSING_A_LITTLE
+	
+func closed() -> bool:
+	return _state == CurtainSystemState.CLOSED

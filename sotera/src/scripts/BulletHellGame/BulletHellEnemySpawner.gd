@@ -1,6 +1,7 @@
 extends Node
 
 @export var enemyScene: PackedScene
+@export var contractScene: PackedScene
 @export var player: BulletHellCharacter
 @export var spawnerLocations: Array[Node2D]
 @export var waves: Array[int]
@@ -30,6 +31,9 @@ func onEnemyKilled(enemy:BulletHellEnemy)->void:
 		currentWave+=1
 		if currentWave>=waves.size():
 			#drop contract
+			var contract = contractScene.instantiate()
+			get_node("/root/BulletHellMinigame").call_deferred("add_child",contract)
+			contract.position = enemy.position
 			return
 		$WaveDelay.start()
 		

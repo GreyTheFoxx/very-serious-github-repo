@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bxvm1qmxyc60c" path="res://src/scripts/BulletHellGame/BulletHellEnemySpawner.gd" id="2_k22da"]
 [ext_resource type="PackedScene" uid="uid://djlcsqi5rdk0t" path="res://assets/prefabs/BulletHellGame/BulletHellEnemy.tscn" id="3_1tnea"]
 [ext_resource type="PackedScene" uid="uid://qxxqamx1koeu" path="res://assets/prefabs/ui/CRT.tscn" id="4_g2uak"]
+[ext_resource type="PackedScene" uid="uid://urcx0ou3hqip" path="res://assets/prefabs/contract.tscn" id="4_i37ik"]
 [ext_resource type="PackedScene" uid="uid://bcnlbtdiicag" path="res://assets/prefabs/gui.tscn" id="4_sx2vv"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_u2d4l"]
@@ -102,6 +103,7 @@ distance = 8.898792
 [node name="BulletHellCharacter" parent="." unique_id=770224643 instance=ExtResource("1_mouw8")]
 position = Vector2(948, 563)
 floor_stop_on_slope = false
+speed = null
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=2056125960]
 visible = false
@@ -248,6 +250,7 @@ shape = SubResource("WorldBoundaryShape2D_4dv3d")
 [node name="EnemySpawner" type="Node" parent="." unique_id=1494541096 node_paths=PackedStringArray("player", "spawnerLocations")]
 script = ExtResource("2_k22da")
 enemyScene = ExtResource("3_1tnea")
+contractScene = ExtResource("4_i37ik")
 player = NodePath("../BulletHellCharacter")
 spawnerLocations = [NodePath("../LeftTent"), NodePath("../RightTent")]
 waves = Array[int]([3, 5])
@@ -268,9 +271,9 @@ offset_bottom = 38.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1305034330]
 
-[node name="GUI" parent="CanvasLayer" unique_id=233616670 instance=ExtResource("4_sx2vv")]
-
 [node name="CRT" parent="CanvasLayer" unique_id=719073563 instance=ExtResource("4_g2uak")]
+
+[node name="GUI" parent="CanvasLayer" unique_id=233616670 instance=ExtResource("4_sx2vv")]
 
 [connection signal="timeout" from="EnemySpawner/SpawnCooldown" to="EnemySpawner" method="spawnEnemy"]
 [connection signal="timeout" from="EnemySpawner/WaveDelay" to="EnemySpawner" method="startWave"]

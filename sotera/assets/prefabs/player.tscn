@@ -280,7 +280,7 @@ height = 12.4
 collision_layer = 2
 script = ExtResource("1_4wcc8")
 
-[node name="Dust" parent="." unique_id=630021936 instance=ExtResource("5_hdmdu")]
+[node name="DustVFX" parent="." unique_id=630021936 instance=ExtResource("5_hdmdu")]
 show_behind_parent = true
 position = Vector2(0, 80)
 scale = Vector2(0.99999976, 0.99999976)

@@ -8,6 +8,7 @@ class_name BulletHellEnemy
 @export var maxHp: int
 @export var damage: int
 
+@onready var animations: AnimatedSprite2D = $Animations
 @onready var hp = maxHp
 
 var player: BulletHellCharacter
@@ -25,6 +26,7 @@ enum BHENEMYSTATE{
 
 func _ready() -> void:
 	#navAgent.set_target_desired_distance(m)
+	animations.play("idle_down")
 	actor_setup.call_deferred()
 
 func actor_setup():
@@ -57,15 +59,32 @@ func _physics_process(delta: float) -> void:
 			var nextPathPosition: Vector2 = navAgent.get_next_path_position()
 			velocity = currentAgentPosition.direction_to(nextPathPosition) * movementSpeed
 			melee.look_at(global_position+velocity)
+			movement_animation()
 			
 	move_and_slide()
+	
+func movement_animation():
+	if absf(velocity.x)<absf(velocity.y):
+		
+		if velocity.y > 0:
+			animations.play("walk_down")
+		elif velocity.y < 0:
+			animations.play("walk_up")
+	else:
+		if velocity.x > 0:
+			animations.flip_h = false
+			animations.play("walk_right")
+		elif velocity.x < 0:
+			animations.flip_h = true
+			animations.play("walk_right")
 
 func spawn(spawnPos:Vector2,player:BulletHellCharacter)->void:
 	state = BHENEMYSTATE.MOVING
 	self.spawnPos = spawnPos
 	position = spawnPos
 	self.player = player
-	$Animation.show()
+	hp = maxHp
+	$Animations.show()
 	pass
 	
 func takeDamage(damageToTake:int)->void:
@@ -80,9 +99,10 @@ func isDisabled() -> bool:
 	
 func destroy()->void:
 	state = BHENEMYSTATE.DISABLED
-	position = spawnPos
 	emit_signal("enemyKilled",self)
-	$Animation.hide()
+	position = spawnPos
+	
+	$Animations.hide()
 
 func _on_attack_hitbox_body_entered(body: Node2D) -> void:
 	if body is BulletHellCharacter:
@@ -98,3 +118,11 @@ func _on_attack_hitbox_body_exited(body: Node2D) -> void:
 			damagingPlayer = false
 			state = BHENEMYSTATE.MOVING
 		
+
+
+func _on_hurtbox_area_entered(area: Area2D) -> void:
+	if area.get_parent():
+		var parent = area.get_parent()
+		if parent is BulletHellBullet:
+			takeDamage(parent.damage)
+			parent.disable()

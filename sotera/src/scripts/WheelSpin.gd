@@ -1,9 +1,10 @@
 extends Node2D
 
 enum WHEELSTATE {
-	SPINNING,
-	MOVING_TO_VALUE,
-	IDLE
+	SPINNING, # goes to WAIT_CURTAINS_TO_CLOSE
+	COMPLETE, # We'll allow spinning only once
+	IDLE,
+	WAIT_CURTAINS_TO_CLOSE
 }
 
 var state: WHEELSTATE = WHEELSTATE.IDLE;
@@ -20,13 +21,26 @@ var speed_multiplier: float = 0.0;
 var items: Array[String] = [
 	"maze", "bullet", "scary", "quiz", "story"
 ]
+var itemSceneMap = {
+	"maze": "res://assets/scenes/StandardMaze.tscn",
+	"bullet": "res://assets/scenes/BulletHellMinigame.tscn",
+	"scary": "res://assets/scenes/ScaryMaze.tscn"
+}
+
 var elapsed_spin_time = 0;
 var single_value_height_in_texture = 1.0 / items.size();
 var value_idx = 2;
 
+@export var curtains: CurtainSystem
+
+func _ready() -> void:
+	offset = Events.get_spinner_start_offset()
+
 func _process(delta: float) -> void:
-	if state == WHEELSTATE.IDLE: 
-		return
+	match state:
+		WHEELSTATE.IDLE: return
+		WHEELSTATE.WAIT_CURTAINS_TO_CLOSE: check_if_curtains_are_closed()
+
 	if elapsed_spin_time < spin_time:
 		speed_multiplier = 1.0 - lerp(
 			0,
@@ -43,8 +57,7 @@ func _process(delta: float) -> void:
 				$WheelSpinEffect.stop_pe_impact()
 			if($WheelSpinEffect2.state != $WheelSpinEffect2.WheelPEState.SPEED_DOWN_TRANSITION):
 				$WheelSpinEffect2.stop_pe_impact()
-	else:
-		stop_spinning()
+	else: stop_spinning()
 
 	value_idx = (int((offset + 0.1) / single_value_height_in_texture) + floori(items.size() / 2)) % items.size();
 
@@ -57,26 +70,42 @@ func _input(event):
 		SoundPool.play_sound(SoundPool.LEVER_PULL)
 
 func start_spinning():
-	state = WHEELSTATE.SPINNING
-	spin_speed = RandUtils.randf_range(min_speed, max_speed)
-	spin_time = RandUtils.randf_range(min_time, max_time)
-	elapsed_spin_time = 0
-	print("started spin")
+	if state == WHEELSTATE.IDLE:
+		state = WHEELSTATE.SPINNING
+		spin_speed = min_speed # RandUtils.randf_range(min_speed, max_speed)
+		spin_time = min_time # RandUtils.randf_range(min_time, max_time)
+		elapsed_spin_time = 0
 
-	SoundPool.play_sound(SoundPool.WHEEL_START)
+		SoundPool.play_sound(SoundPool.WHEEL_START)
 
-	$WheelSpinEffect.start_speedup()
-	$WheelSpinEffect2.start_speedup()
+		$WheelSpinEffect.start_speedup()
+		$WheelSpinEffect2.start_speedup()
 	
-	await get_tree().create_timer(spin_time * 0.45).timeout
+		await get_tree().create_timer(spin_time * 0.45).timeout
 	
-	SoundPool.play_sound(SoundPool.WHEEL_STOP)
+		SoundPool.play_sound(SoundPool.WHEEL_STOP)
+
+func check_if_curtains_are_closed() -> void:
+	if !curtains.closed(): return
+	
+	SoundPool.play_sound(SoundPool.MINIGAME_SELECTED)
+	Events.change_level(itemSceneMap[str(items[value_idx])])
+	
+	state = WHEELSTATE.COMPLETE
 	
 	SoundPool.play_sound(SoundPool.AUDIENCE_CHEER)
 	
 func stop_spinning() -> void:
-	state = WHEELSTATE.IDLE
+	if state == WHEELSTATE.SPINNING: start_closing_curtains()
+
+
+		
+func start_closing_curtains() -> void:
+	state = WHEELSTATE.WAIT_CURTAINS_TO_CLOSE # old: WHEELSTATE.COMPLETED
+	Events.increase_spinner_starting_positoin()
 	$WheelSpinEffect.start_slowdown()
 	$WheelSpinEffect2.start_slowdown()
-	print("stopped spin")
-	SoundPool.play_sound(SoundPool.MINIGAME_SELECTED)
+	curtains.close_full()
+
+func _on_lever_lever_pulled() -> void:
+	start_spinning()
