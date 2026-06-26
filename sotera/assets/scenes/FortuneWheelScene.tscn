@@ -1,18 +1,18 @@
 [gd_scene format=3 uid="uid://bbqcbyvycwqrr"]
 
-[ext_resource type="PackedScene" uid="uid://cfpfhc2bmrb7b" path="res://assets/prefabs/gui.tscn" id="1_8cy1c"]
+[ext_resource type="PackedScene" uid="uid://bcnlbtdiicag" path="res://assets/prefabs/gui.tscn" id="1_8cy1c"]
 [ext_resource type="Texture2D" uid="uid://n3ucyq26j0qu" path="res://assets/raw/wheel-scene/stage.png" id="1_cooqm"]
 [ext_resource type="Script" uid="uid://fax1pcst4y2u" path="res://src/scripts/fortune_wheel_scene.gd" id="1_d7hmc"]
 [ext_resource type="PackedScene" uid="uid://m03c8gghqx32" path="res://assets/prefabs/Steven.tscn" id="4_4fco3"]
 [ext_resource type="PackedScene" uid="uid://qxxqamx1koeu" path="res://assets/prefabs/ui/CRT.tscn" id="6_4arlo"]
 [ext_resource type="PackedScene" uid="uid://ctimv56j7qqjo" path="res://assets/prefabs/lever.tscn" id="7_cooqm"]
-[ext_resource type="PackedScene" uid="uid://dxv6xfjtybe7l" path="res://assets/prefabs/curtain_prefab.tscn" id="8_dsjn4"]
+[ext_resource type="PackedScene" uid="uid://bwav05t3mcd2k" path="res://assets/prefabs/curtain_prefab.tscn" id="8_dsjn4"]
 [ext_resource type="PackedScene" uid="uid://c7kga4lmflwpr" path="res://assets/prefabs/ui/stage_player.tscn" id="9_8cy1c"]
-
-[ext_resource type="Script" uid="uid://bhqfew7feq5tr" path="res://src/scripts/MiniGameTracker.gd" id="12_wipld"]
+[ext_resource type="PackedScene" uid="uid://dmi2oqodqjn68" path="res://assets/prefabs/ui/trackers/mini_game_tracker.tscn" id="11_cl5pl"]
 [ext_resource type="Texture2D" uid="uid://bs33hui6wy3e7" path="res://assets/raw/wheel-scene/fortune_wheel/wheel_icon_maze.png" id="13_6vnka"]
 [ext_resource type="Texture2D" uid="uid://c6efpemuy42tc" path="res://assets/raw/wheel-scene/fortune_wheel/wheel_icon_bullets.png" id="14_4tcif"]
 [ext_resource type="Texture2D" uid="uid://cllxxawp4bkrl" path="res://assets/raw/wheel-scene/fortune_wheel/wheel_icon_quiz.png" id="15_0wqvk"]
+[ext_resource type="Script" uid="uid://dnwagqmfpnviu" path="res://src/systems/parallax/ParallaxSystem.gd" id="15_1cyg4"]
 [ext_resource type="Texture2D" uid="uid://do1jnfte64gyp" path="res://assets/raw/wheel-scene/fortune_wheel/wheel_icon_scary.png" id="16_83ar3"]
 [ext_resource type="PackedScene" uid="uid://bl5kwk28ennhq" path="res://assets/prefabs/ui/dialogue_text.tscn" id="17_6vnka"]
 
@@ -27,11 +27,6 @@ curtains = NodePath("Curtains")
 position = Vector2(960.0001, 544)
 scale = Vector2(6.0027785, 6.0027785)
 texture = ExtResource("1_cooqm")
-
-[node name="Wheel" parent="." unique_id=1465385523 node_paths=PackedStringArray("curtains", "minigame_tracker") instance=ExtResource("2_4arlo")]
-position = Vector2(950, 836)
-curtains = NodePath("../Curtains")
-minigame_tracker = NodePath("../CanvasLayer/TrackerUI")
 
 [node name="worldboundary" type="Node2D" parent="." unique_id=1162189176]
 
@@ -73,19 +68,21 @@ position = Vector2(1472, 840)
 position = Vector2(1655.9999, 959.99994)
 
 [node name="Curtains" parent="." unique_id=1568423794 instance=ExtResource("8_dsjn4")]
-depth = 2
 metadata/_edit_lock_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=619906068]
-layer = 4
 
 [node name="CRT" parent="CanvasLayer" unique_id=719073563 instance=ExtResource("6_4arlo")]
 
+[node name="GUI" parent="CanvasLayer" unique_id=233616670 instance=ExtResource("1_8cy1c")]
 
-[node name="UI" parent="CanvasLayer" unique_id=233616670 instance=ExtResource("1_8cy1c")]
-
-
-[node name="TrackerUI" parent="CanvasLayer" unique_id=1169662608 instance=ExtResource("11_cl5pl")]
+[node name="MiniGameTracker" parent="." unique_id=914605974 instance=ExtResource("11_cl5pl")]
+game_icons = {
+"bullet": ExtResource("14_4tcif"),
+"maze": ExtResource("13_6vnka"),
+"quiz": ExtResource("15_0wqvk"),
+"scary": ExtResource("16_83ar3")
+}
 
 [node name="DialogueText" parent="." unique_id=998366939 instance=ExtResource("17_6vnka")]
 offset_left = 320.0
@@ -93,11 +90,10 @@ offset_top = 351.0
 offset_right = -1429.3333
 offset_bottom = -633.0
 
-[node name="Systems" type="Node" parent="." unique_id=1411819191]
+[node name="Systems" type="Node" parent="." unique_id=323798835]
 
-[node name="Parallax" type="Node" parent="Systems" unique_id=739518323 node_paths=PackedStringArray("layers")]
-script = ExtResource("13_7j86w")
+[node name="Parallax" type="Node" parent="Systems" unique_id=1586500093 node_paths=PackedStringArray("layers")]
+script = ExtResource("15_1cyg4")
 layers = [NodePath("../../Curtains")]
 
-[connection signal="lever_pulled" from="Lever" to="Wheel" method="_on_lever_lever_pulled"]
 [connection signal="speech_ended" from="DialogueText" to="Lever" method="_on_dialogue_text_speech_ended"]

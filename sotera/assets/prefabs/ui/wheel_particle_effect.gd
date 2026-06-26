@@ -32,17 +32,7 @@ func _process(delta: float) -> void:
 			min(elapsed_time / transition_time, 1)
 		)
 		elapsed_time += delta
-		update_speed(speed, velocity_diff_multiplier)
-	else:
-		if state == WheelPEState.SPEED_UP_TRANSITION:
-			state = WheelPEState.FAST_MODE
-			speed = fast_speed
-			update_speed(speed, velocity_diff_multiplier)
-		elif state == WheelPEState.SPEED_DOWN_TRANSITION:
-			state = WheelPEState.NORMAL_MODE
-			speed = normal_speed
-			update_speed(speed, velocity_diff_multiplier)
-			$bigPE.emitting = false
+		update_speed(speed, velocie
 			$smallPE.emitting = false
 
 func start_speedup():

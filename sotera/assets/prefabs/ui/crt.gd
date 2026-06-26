@@ -14,6 +14,8 @@ func _ready() -> void:
 	Events.level_change_enter.connect(fade_in)
 	Events.play_loading_screen.connect(load_screen)
 	Events.stop_loading_screen.connect(stop_load_screen)
+	
+	#$LoadingScreen.modulate.a = 1.0
 
 func _process(delta: float) -> void:
 	crt_motion.update(delta)
