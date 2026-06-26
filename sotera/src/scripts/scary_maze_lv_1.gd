@@ -17,6 +17,7 @@ var jumpscare_active: bool = false
 
 func _ready() -> void:
 	MusicPlayer.play_track(MusicPlayer.SCARY, -9.0)
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 func _exit_tree() -> void:
 	MusicPlayer.stop_track(2.0)

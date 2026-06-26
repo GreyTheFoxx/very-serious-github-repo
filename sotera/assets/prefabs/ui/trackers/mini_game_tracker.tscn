@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://dmi2oqodqjn68"]
+
+[ext_resource type="Script" uid="uid://bhqfew7feq5tr" path="res://src/scripts/wheel/trackers/MiniGameTracker.gd" id="1_es307"]
+[ext_resource type="Texture2D" uid="uid://djr0tyhcc77d3" path="res://assets/raw/wheel-scene/fortune_wheel/trackers/empty track.png" id="2_a25ki"]
+[ext_resource type="Texture2D" uid="uid://c6efpemuy42tc" path="res://assets/raw/wheel-scene/fortune_wheel/wheel_icon_bullets.png" id="3_0nfwh"]
+[ext_resource type="Script" uid="uid://bag4hd0jq2qu" path="res://src/scripts/wheel/trackers/TrackerPart.gd" id="3_70cjp"]
+[ext_resource type="Texture2D" uid="uid://bs33hui6wy3e7" path="res://assets/raw/wheel-scene/fortune_wheel/wheel_icon_maze.png" id="5_0gk7n"]
+[ext_resource type="Texture2D" uid="uid://cllxxawp4bkrl" path="res://assets/raw/wheel-scene/fortune_wheel/wheel_icon_quiz.png" id="6_7pyns"]
+[ext_resource type="Texture2D" uid="uid://do1jnfte64gyp" path="res://assets/raw/wheel-scene/fortune_wheel/wheel_icon_scary.png" id="7_ic5a2"]
+[ext_resource type="Texture2D" uid="uid://bfa376lhlwfvr" path="res://assets/raw/wheel-scene/fortune_wheel/wheel_icon_story.png" id="8_1rpy2"]
+
+[node name="Container" type="HBoxContainer" unique_id=1169662608]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 18.0
+grow_horizontal = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 0
+alignment = 1
+script = ExtResource("1_es307")
+empty_texture = ExtResource("2_a25ki")
+
+[node name="tmp1" type="TextureRect" parent="." unique_id=851121514]
+layout_mode = 2
+texture = ExtResource("3_0nfwh")
+script = ExtResource("3_70cjp")
+metadata/_custom_type_script = "uid://bag4hd0jq2qu"
+
+[node name="tmp2" type="TextureRect" parent="." unique_id=391668852]
+layout_mode = 2
+texture = ExtResource("5_0gk7n")
+script = ExtResource("3_70cjp")
+metadata/_custom_type_script = "uid://bag4hd0jq2qu"
+
+[node name="tmp3" type="TextureRect" parent="." unique_id=1339665390]
+layout_mode = 2
+texture = ExtResource("5_0gk7n")
+script = ExtResource("3_70cjp")
+metadata/_custom_type_script = "uid://bag4hd0jq2qu"
+
+[node name="tmp4" type="TextureRect" parent="." unique_id=482613005]
+layout_mode = 2
+texture = ExtResource("6_7pyns")
+script = ExtResource("3_70cjp")
+metadata/_custom_type_script = "uid://bag4hd0jq2qu"
+
+[node name="tmp5" type="TextureRect" parent="." unique_id=1719046944]
+layout_mode = 2
+texture = ExtResource("6_7pyns")
+script = ExtResource("3_70cjp")
+metadata/_custom_type_script = "uid://bag4hd0jq2qu"
+
+[node name="tmp6" type="TextureRect" parent="." unique_id=1990296669]
+layout_mode = 2
+texture = ExtResource("7_ic5a2")
+script = ExtResource("3_70cjp")
+metadata/_custom_type_script = "uid://bag4hd0jq2qu"
+
+[node name="tmp7" type="TextureRect" parent="." unique_id=77425876]
+layout_mode = 2
+texture = ExtResource("3_0nfwh")
+script = ExtResource("3_70cjp")
+metadata/_custom_type_script = "uid://bag4hd0jq2qu"
+
+[node name="tmp8" type="TextureRect" parent="." unique_id=2117018032]
+layout_mode = 2
+texture = ExtResource("7_ic5a2")
+script = ExtResource("3_70cjp")
+metadata/_custom_type_script = "uid://bag4hd0jq2qu"
+
+[node name="tmp9" type="TextureRect" parent="." unique_id=1326309348]
+layout_mode = 2
+texture = ExtResource("7_ic5a2")
+script = ExtResource("3_70cjp")
+metadata/_custom_type_script = "uid://bag4hd0jq2qu"
+
+[node name="tmp10" type="TextureRect" parent="." unique_id=1818748864]
+layout_mode = 2
+texture = ExtResource("8_1rpy2")
+script = ExtResource("3_70cjp")
+metadata/_custom_type_script = "uid://bag4hd0jq2qu"

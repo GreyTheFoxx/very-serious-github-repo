@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://dhjeievpqix1a"]
+
+[ext_resource type="Texture2D" uid="uid://2m10dsd02hoj" path="res://assets/raw/wheel-scene/fortune_wheel/trackers/track_ok.png" id="1_ddq4n"]
+[ext_resource type="Texture2D" uid="uid://bs33hui6wy3e7" path="res://assets/raw/wheel-scene/fortune_wheel/wheel_icon_maze.png" id="1_wbxjy"]
+[ext_resource type="Script" uid="uid://bag4hd0jq2qu" path="res://src/scripts/wheel/trackers/TrackerPart.gd" id="2_4sp8a"]
+[ext_resource type="Texture2D" uid="uid://w2pdcn1543nr" path="res://assets/raw/wheel-scene/fortune_wheel/trackers/track_x_1.png" id="3_4sp8a"]
+
+[node name="TrackerPart" type="TextureRect" unique_id=1460893767 node_paths=PackedStringArray("fail", "success")]
+custom_minimum_size = Vector2(54, 40)
+offset_right = 54.0
+offset_bottom = 40.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_wbxjy")
+script = ExtResource("2_4sp8a")
+fail = NodePath("Fail")
+success = NodePath("Success")
+
+[node name="Fail" type="TextureRect" parent="." unique_id=1696428928]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 10.0
+offset_right = 37.0
+offset_bottom = 30.0
+texture = ExtResource("3_4sp8a")
+
+[node name="Success" type="TextureRect" parent="." unique_id=1904364391]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 41.0
+offset_right = 35.0
+offset_bottom = 51.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("1_ddq4n")

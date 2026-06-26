@@ -19,7 +19,6 @@ var _queued_volume_db : float = 0.0
 func _ready() -> void:
 	for i in _STREAM_COUNT:
 		var instance : AudioStreamPlayer = AudioStreamPlayer.new()
-		instance.bus = "Music"
 		_players.push_back(instance)
 		add_child(instance)
 
