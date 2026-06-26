@@ -181,6 +181,9 @@ func close_both_certains_a_little() -> void:
 	curtain_right.start_little_sound()
 	
 	_state = CurtainSystemState.CLOSING_A_LITTLE
+
+func opened() -> bool:
+	return _state == CurtainSystemState.OPEN_FULL
 	
 func closed() -> bool:
 	return _state == CurtainSystemState.CLOSED

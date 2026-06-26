@@ -45,5 +45,6 @@
 
   { "name": "Verya Yandervose", "roles": "Pixel artist", "joined_at": "2026-02-10", "itch": "VeryaYandervose" },
   { "name": "", "roles": "Mental support / writer", "joined_at": "2026-02-11", "itch": "" },
-  { "name": "Mrz740", "roles": "Moderator", "joined_at": "2026-02-11", "itch": "Mrz740" }
+  { "name": "Mrz740", "roles": "Moderator", "joined_at": "2026-02-11", "itch": "Mrz740" },
+  { "name": "Hyphen", "roles": "Pixel artist", "joined_at": "2026-02-11", "itch": "Hyphen-dev" },
 ]
