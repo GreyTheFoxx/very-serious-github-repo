@@ -8,6 +8,8 @@ enum Answers {A, B ,C, D}
 @onready var option_d: Button = $Options/VBoxContainer2/OptionD
 @onready var question_label: Label = $QuestionLabel
 @onready var boss_health_bar: ProgressBar = $BossHealthBar
+@onready var boss_flash_component: FlashComponent = $BossFlashComponent
+@onready var player_flash_component: FlashComponent = $PlayerFlashComponent
 
 
 @export var boss_max_health: int
@@ -69,11 +71,13 @@ func move_to_next_question() -> void:
 func on_right_answer() -> void:
 	boss_health -= player_damage
 	boss_health_bar.value = boss_health
+	boss_flash_component._flash()
 	if boss_health <= 0:
 		on_boss_death()
 
 func on_wrong_question() -> void:
 	Events.lose_life.emit()
+	player_flash_component._flash()
 	if Globals.Lives <= 0:
 		on_player_death()
 
