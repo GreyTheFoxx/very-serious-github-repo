@@ -2,9 +2,12 @@
 
 [ext_resource type="Script" uid="uid://ca7ugi6emcwu" path="res://src/scripts/final_boss.gd" id="1_6ag57"]
 [ext_resource type="Script" uid="uid://d2qode13dvwob" path="res://src/scripts/question.gd" id="2_k525x"]
+[ext_resource type="Texture2D" uid="uid://dt7idby6ioc1h" path="res://assets/images/12.png" id="3_1hrp2"]
 [ext_resource type="PackedScene" uid="uid://cfpfhc2bmrb7b" path="res://assets/prefabs/gui.tscn" id="3_loflm"]
 [ext_resource type="Texture2D" uid="uid://dw07aj3turlb" path="res://assets/raw/MC_platformer_spritesheet (2).png" id="5_jil5c"]
+[ext_resource type="Theme" uid="uid://o5t7jr4vdtem" path="res://assets/prefabs/ui/option_button_theme.tres" id="5_u6exl"]
 [ext_resource type="Texture2D" uid="uid://b4meiyl3qtq4d" path="res://assets/raw/boss_hair_anim5-ezgif.com-gif-to-sprite-converter (1).png" id="5_vkukm"]
+[ext_resource type="FontFile" uid="uid://cwbt4fgf27yh7" path="res://assets/fonts/MGPixel.otf" id="6_klscq"]
 [ext_resource type="Script" uid="uid://buoih526378b8" path="res://src/scripts/flash_componet.gd" id="7_8xf35"]
 
 [sub_resource type="Resource" id="Resource_k525x"]
@@ -59,48 +62,22 @@ metadata/_custom_type_script = "uid://d2qode13dvwob"
 
 [sub_resource type="Resource" id="Resource_1hrp2"]
 script = ExtResource("2_k525x")
-question = "What is an audience expected to do during a game show?"
-option_a = "Remain silent"
-option_b = "Compete directly"
-option_c = "Read the rules"
-option_d = "React and participate"
-answer = 3
 metadata/_custom_type_script = "uid://d2qode13dvwob"
 
 [sub_resource type="Resource" id="Resource_u6exl"]
 script = ExtResource("2_k525x")
-question = "The phrase 'double or nothing' means a contestant risks what they have for whatreward?"
-option_a = "Half as much"
-option_b = "No reward at all"
-option_c = "Twice the reward"
-option_d = "A second turn"
-answer = 2
 metadata/_custom_type_script = "uid://d2qode13dvwob"
 
 [sub_resource type="Resource" id="Resource_klscq"]
 script = ExtResource("2_k525x")
-question = "Casinos and game operators make money because they possess what?"
-option_a = "A statistical advantage"
-option_b = "Better luck"
-option_c = "More players"
-option_d = "Faster dealers"
 metadata/_custom_type_script = "uid://d2qode13dvwob"
 
 [sub_resource type="Resource" id="Resource_05l7r"]
 script = ExtResource("2_k525x")
-question = "What does it mean to 'lock in' an answer?"
-option_a = "To hide it"
-option_b = "To change it later"
-option_c = "To make it final"
-option_d = "To wager points"
-answer = 2
 metadata/_custom_type_script = "uid://d2qode13dvwob"
 
 [sub_resource type="Resource" id="Resource_mha1t"]
 script = ExtResource("2_k525x")
-question = "What is the grand prize of Wheel of Damnation?"
-option_a = "Wealth"
-option_b = "Fame"
 option_d = "Survival"
 metadata/_custom_type_script = "uid://d2qode13dvwob"
 
@@ -248,15 +225,10 @@ boss_max_health = 5
 player_damage = 1
 questions = Array[ExtResource("2_k525x")]([SubResource("Resource_k525x"), SubResource("Resource_jil5c"), SubResource("Resource_vkukm"), SubResource("Resource_8xf35"), SubResource("Resource_3etcb"), SubResource("Resource_1hrp2"), SubResource("Resource_u6exl"), SubResource("Resource_klscq"), SubResource("Resource_05l7r"), SubResource("Resource_mha1t")])
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1195852189]
-visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.41406584, 0.41406578, 0.41406578, 1)
+[node name="12" type="Sprite2D" parent="." unique_id=1530179560]
+position = Vector2(961.00006, 543)
+scale = Vector2(6, 6)
+texture = ExtResource("3_1hrp2")
 
 [node name="Control" parent="." unique_id=233616670 instance=ExtResource("3_loflm")]
 layout_mode = 1
@@ -291,6 +263,8 @@ layout_mode = 2
 layout_direction = 2
 focus_neighbor_right = NodePath("../../VBoxContainer2/OptionC")
 focus_neighbor_bottom = NodePath("../OptionB")
+theme = ExtResource("5_u6exl")
+theme_override_fonts/font = ExtResource("6_klscq")
 text = "a"
 alignment = 0
 
