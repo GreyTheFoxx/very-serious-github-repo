@@ -20,7 +20,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_7t6i1")
-target_scene = "res://assets/scenes/FortuneWheelScene.tscn"
+target_scene = "res://assets/scenes/Intro.tscn"
 
 [node name="Curtains" parent="." unique_id=1459606750 instance=ExtResource("2_k62dj")]
 metadata/_edit_lock_ = true

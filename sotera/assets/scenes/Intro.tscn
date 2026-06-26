@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://cx7ay4xs67kkt"]
+
+[ext_resource type="PackedScene" uid="uid://qxxqamx1koeu" path="res://assets/prefabs/ui/CRT.tscn" id="1_c7jh5"]
+[ext_resource type="Script" uid="uid://bndqhh7866vkq" path="res://src/scripts/intro.gd" id="1_sfoav"]
+[ext_resource type="Texture2D" uid="uid://n3ucyq26j0qu" path="res://assets/raw/wheel-scene/stage.png" id="2_a75s3"]
+[ext_resource type="PackedScene" uid="uid://m03c8gghqx32" path="res://assets/prefabs/Steven.tscn" id="2_q5g6k"]
+[ext_resource type="Script" uid="uid://csvkyipwsqote" path="res://src/scripts/Dialogues/UIText.gd" id="5_qcqv8"]
+[ext_resource type="PackedScene" uid="uid://bwav05t3mcd2k" path="res://assets/prefabs/curtain_prefab.tscn" id="6_sfoav"]
+
+[node name="Intro" type="Node2D" unique_id=869521362]
+script = ExtResource("1_sfoav")
+target_scene = "res://assets/scenes/FortuneWheelScene.tscn"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=768429282]
+visible = false
+
+[node name="CRT" parent="CanvasLayer" unique_id=719073563 instance=ExtResource("1_c7jh5")]
+
+[node name="Stage" type="Sprite2D" parent="." unique_id=2016894169]
+position = Vector2(960.2221, 540.75006)
+scale = Vector2(6.0027785, 6.0027785)
+texture = ExtResource("2_a75s3")
+
+[node name="UiText" type="Control" parent="." unique_id=1375843956]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 897.0
+offset_top = 464.0
+offset_right = 937.0
+offset_bottom = 504.00006
+script = ExtResource("5_qcqv8")
+metadata/_custom_type_script = "uid://csvkyipwsqote"
+
+[node name="Label" type="Label" parent="UiText" unique_id=1469665817]
+layout_mode = 0
+offset_left = -670.0
+offset_top = 9.0
+offset_right = 731.0
+offset_bottom = 27.0
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
+
+[node name="Curtains" parent="." unique_id=1568423794 instance=ExtResource("6_sfoav")]
+
+[node name="Steven" parent="." unique_id=2100930359 instance=ExtResource("2_q5g6k")]
+position = Vector2(922, 850)
+
+[connection signal="speech_ended" from="UiText" to="." method="_on_ui_text_speech_ended"]
