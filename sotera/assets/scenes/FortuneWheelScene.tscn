@@ -57,6 +57,7 @@ texture = ExtResource("2_ybih4")
 metadata/_edit_lock_ = true
 
 [node name="Audience" type="Node2D" parent="World" unique_id=1246452229]
+visible = false
 
 [node name="v1" type="Sprite2D" parent="World/Audience" unique_id=884270620]
 position = Vector2(866.00006, 529)
@@ -96,13 +97,13 @@ texture = ExtResource("10_jkhbp")
 [node name="Stage" type="Node" parent="World" unique_id=1202452938]
 
 [node name="StageSingle" type="Sprite2D" parent="World/Stage" unique_id=1749084055]
+visible = false
 position = Vector2(910.00006, 608)
 scale = Vector2(8.338673, 5.9624996)
 texture = ExtResource("3_fe3tk")
 metadata/_edit_lock_ = true
 
 [node name="Stage" type="Sprite2D" parent="World/Stage" unique_id=969645194]
-visible = false
 position = Vector2(960.0001, 544)
 scale = Vector2(6.0027785, 6.0027785)
 texture = ExtResource("1_cooqm")
@@ -111,7 +112,7 @@ metadata/_edit_lock_ = true
 [node name="FG" type="Node" parent="World" unique_id=1553769669]
 
 [node name="Wheel" parent="World/FG" unique_id=1465385523 node_paths=PackedStringArray("curtains", "minigame_tracker") instance=ExtResource("16_556sf")]
-position = Vector2(903, 723)
+position = Vector2(958, 705)
 scale = Vector2(0.8, 0.8)
 curtains = NodePath("../../../Group Curtains/Curtains")
 minigame_tracker = NodePath("../../../MiniGameTracker")
