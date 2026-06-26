@@ -65,11 +65,6 @@ func _process(delta: float) -> void:
 	$WheelTexture.material.set_shader_parameter("offset", offset);
 	$WheelValue.text = str(items[value_idx])
 
-func _input(event):
-	if event.is_action_pressed("interact"):
-		start_spinning()
-		SoundPool.play_sound(SoundPool.LEVER_PULL)
-
 func start_spinning():
 	if state == WHEELSTATE.IDLE:
 		state = WHEELSTATE.SPINNING
