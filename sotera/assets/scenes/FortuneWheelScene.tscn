@@ -50,7 +50,6 @@ texture = ExtResource("2_fe3tk")
 metadata/_edit_lock_ = true
 
 [node name="BG2" type="Sprite2D" parent="World/BG" unique_id=481166884]
-visible = false
 position = Vector2(935, 508)
 scale = Vector2(6.9375, 6.9055557)
 texture = ExtResource("2_ybih4")
