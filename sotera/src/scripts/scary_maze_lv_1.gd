@@ -2,7 +2,8 @@ extends Node2D
 
 @export var point_light: PointLight2D
 @export var darkness: CanvasModulate
-@export var player: CharacterBody2D
+@onready var player: Player = $"../Player2"
+
 
 @onready var hp = 3
 
