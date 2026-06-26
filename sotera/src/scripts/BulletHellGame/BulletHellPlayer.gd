@@ -2,9 +2,11 @@ extends Player
 class_name BulletHellPlayer
 
 @export var gun: BulletHellGun
-@export var iFrames: int
+@export var is_invincible: bool = false
 
-var currentiFrames: int = 0
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var animations: AnimatedSprite2D = $Animations
+
 var mousePos: Vector2
 var theta = 0
 var firing: bool = false
@@ -23,44 +25,41 @@ func _ready():
 	
 func idle_animation():
 	if theta>down_right_theta && theta<down_left_theta:
-		$Animations.play("forwardidle")
+		animations.play("forwardidle")
 	if theta<up_right_theta&&theta>up_left_theta:
-		$Animations.play("backidle")
+		animations.play("backidle")
 	if theta > down_left_theta || theta<up_left_theta:
-		$Animations.play("leftidle")
+		animations.play("leftidle")
 	if theta < down_right_theta && theta > up_right_theta:
-		$Animations.play("rightidle")
+		animations.play("rightidle")
 		
 func movement_animation():
 	if velocity.x == 0 and velocity.y > 0:
 		if theta > 0:
-			$Animations.play("forwardrun")
+			animations.play("forwardrun")
 		else:
-			$Animations.play_backwards("backrun")
+			animations.play_backwards("backrun")
 	elif velocity.x == 0 and velocity.y < 0:
 		if theta>0:
-			$Animations.play_backwards("forwardrun")
+			animations.play_backwards("forwardrun")
 		else:
-			$Animations.play("backrun")
+			animations.play("backrun")
 	elif velocity.x > 0:
 		if theta>up_theta && theta<down_theta:
-			$Animations.play("rightrun")
-			$Animations.flip_h = false
+			animations.play("rightrun")
+			animations.flip_h = false
 		else:
-			$Animations.flip_h = true
-			$Animations.play_backwards("leftrun")
+			animations.flip_h = true
+			animations.play_backwards("leftrun")
 	elif velocity.x < 0:
 		if theta>up_theta && theta<down_theta:
-			$Animations.play_backwards("rightrun")
-			$Animations.flip_h = false
+			animations.play_backwards("rightrun")
+			animations.flip_h = false
 		else:
-			$Animations.flip_h = true
-			$Animations.play("leftrun")
+			animations.flip_h = true
+			animations.play("leftrun")
 
 func _physics_process(delta):
-	if currentiFrames > 0:
-		currentiFrames -= 1
-
 	mousePos = get_global_mouse_position()
 	theta = get_angle_to(mousePos)
 
@@ -69,6 +68,7 @@ func _physics_process(delta):
 	super._physics_process(delta)
 
 func take_damage() -> void:
-	if currentiFrames <= 0:
-		currentiFrames = iFrames
-		Events.lose_life.emit()
+	if is_invincible:
+		return
+	Events.lose_life.emit()
+	animation_player.play("hurt")

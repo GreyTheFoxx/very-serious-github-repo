@@ -1,0 +1,6 @@
+[gd_resource type="Theme" format=3 uid="uid://o5t7jr4vdtem"]
+
+[ext_resource type="FontFile" uid="uid://cwbt4fgf27yh7" path="res://assets/fonts/MGPixel.otf" id="1_de8qd"]
+
+[resource]
+Button/fonts/font = ExtResource("1_de8qd")

@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://cchy7yoogu2m4"]
+
+[ext_resource type="Script" uid="uid://djoaab6s0tik7" path="res://src/scripts/wheel/FortuneWheelPauseUi.gd" id="1_3te2d"]
+[ext_resource type="Script" uid="uid://6gbrgksowim7" path="res://src/scripts/main/MenuLabelMotionControl.gd" id="2_ajsso"]
+
+[node name="PauseBox" type="Node" unique_id=439402701]
+script = ExtResource("1_3te2d")
+range_full_appear_visibility_time = Vector2(0.28, 0.4)
+
+[node name="Pause" type="Label" parent="." unique_id=188030420]
+offset_top = 268.0
+offset_right = 1920.0
+offset_bottom = 757.0
+theme_override_font_sizes/font_size = 236
+text = "
+PAUSE"
+horizontal_alignment = 1
+script = ExtResource("2_ajsso")
+
+[node name="Space To Return" type="Label" parent="." unique_id=1279478141]
+offset_top = 761.0
+offset_right = 1920.0
+offset_bottom = 812.0
+theme_override_colors/font_color = Color(0.81960785, 0.8117647, 0.5254902, 1)
+theme_override_font_sizes/font_size = 48
+text = "<press space or click>"
+horizontal_alignment = 1
+script = ExtResource("2_ajsso")

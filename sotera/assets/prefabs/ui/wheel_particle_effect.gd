@@ -32,8 +32,8 @@ func _process(delta: float) -> void:
 			min(elapsed_time / transition_time, 1)
 		)
 		elapsed_time += delta
-		update_speed(speed, velocie
-			$smallPE.emitting = false
+		update_speed(speed, velocity_diff_multiplier)
+		$smallPE.emitting = false
 
 func start_speedup():
 	current_speed = speed

@@ -2,6 +2,9 @@ extends ParallaxLayerA
 
 class_name CurtainSystem
 
+signal on_close
+signal on_opening
+
 enum CurtainSystemState { 
 	CLOSED,
 	OPENING_A_LITTLE, OPEN_A_LITTLE, CLOSING_A_LITTLE,
@@ -56,7 +59,7 @@ func _ready() -> void:
 	)
 
 func _process(delta: float) -> void:
-	match(_state):
+	match _state:
 		CurtainSystemState.OPENING_A_LITTLE: _update_little_opening(delta)
 		CurtainSystemState.CLOSING_A_LITTLE: _update_little_closing(delta)
 		CurtainSystemState.OPENING_FULL: _update_full_opening(delta)
@@ -70,7 +73,9 @@ func _update_full_opening(delta: float) -> void:
 func _update_full_closing(delta: float) -> void:
 	time = max(time - delta, 0.0)
 	_update_full_closing_params()
-	if time == 0.0: _state = CurtainSystemState.CLOSED
+	if time == 0.0:
+		on_close.emit()
+		_state = CurtainSystemState.CLOSED
 	
 func _update_full_opening_params() -> void:
 	var t: float = time / max_time
@@ -136,6 +141,9 @@ func _update_little() -> void:
 func open_full() -> void:
 	var skip: bool = _state == CurtainSystemState.OPENING_FULL || _state == CurtainSystemState.OPEN_FULL
 	if skip: return
+	
+	if _state == CurtainSystemState.CLOSED:
+		on_opening.emit() # used by pauss
 	
 	ajust_full_open_origin()
 	time = 0.0

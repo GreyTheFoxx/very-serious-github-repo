@@ -1,4 +1,5 @@
 extends Node
+class_name SpaceReturn
 
 @export var curtain_menu_scene: String
 
@@ -8,11 +9,11 @@ func _input(event: InputEvent) -> void:
 
 func _process_touch(event) -> void:
 	if event is InputEventScreenTouch and !event.pressed:
-		return_to_main()
+		action()
 		
 func _process_key(event) -> void:
 	if event is InputEventKey and event.keycode == KEY_SPACE and !event.pressed:
-		return_to_main()
+		action()
 			
-func return_to_main() -> void:
-	Events.change_level(curtain_menu_scene)
+func action() -> void:
+	Events.change_level(curtain_menu_scene) # return to main
