@@ -177,6 +177,7 @@ scale = Vector2(5.276188, -5.623645)
 texture = ExtResource("6_4tcif")
 
 [node name="Curtains" parent="Group Curtains" unique_id=1568423794 instance=ExtResource("8_dsjn4")]
+range_max_open_close_time = Vector2(1.8, 2.8)
 metadata/_edit_lock_ = true
 
 [node name="Left Collision" type="Area2D" parent="Group Curtains" unique_id=1993275976 node_paths=PackedStringArray("curtains", "dialogue")]
