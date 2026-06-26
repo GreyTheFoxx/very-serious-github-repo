@@ -10,6 +10,7 @@
 [ext_resource type="FontFile" uid="uid://cwbt4fgf27yh7" path="res://assets/fonts/MGPixel.otf" id="6_klscq"]
 [ext_resource type="Script" uid="uid://buoih526378b8" path="res://src/scripts/flash_componet.gd" id="7_8xf35"]
 [ext_resource type="Texture2D" uid="uid://dswaovw6ecers" path="res://assets/images/mc_boss_hand.png" id="10_u6exl"]
+[ext_resource type="Script" uid="uid://do3uhuvt6gysq" path="res://assets/scenes/screen_shake.gd" id="11_klscq"]
 
 [sub_resource type="Resource" id="Resource_k525x"]
 script = ExtResource("2_k525x")
@@ -227,7 +228,7 @@ player_damage = 1
 questions = Array[ExtResource("2_k525x")]([SubResource("Resource_k525x"), SubResource("Resource_jil5c"), SubResource("Resource_vkukm"), SubResource("Resource_8xf35"), SubResource("Resource_3etcb"), SubResource("Resource_1hrp2"), SubResource("Resource_u6exl"), SubResource("Resource_klscq"), SubResource("Resource_05l7r"), SubResource("Resource_mha1t")])
 
 [node name="12" type="Sprite2D" parent="." unique_id=1530179560]
-position = Vector2(961.00006, 543)
+position = Vector2(960.00006, 540)
 scale = Vector2(6, 6)
 texture = ExtResource("3_1hrp2")
 
@@ -359,5 +360,9 @@ metadata/_custom_type_script = "uid://buoih526378b8"
 position = Vector2(918, 883)
 scale = Vector2(6, 6)
 texture = ExtResource("10_u6exl")
+
+[node name="ShakeCamera2D" type="Camera2D" parent="." unique_id=1132796550]
+position = Vector2(960, 540)
+script = ExtResource("11_klscq")
 
 [editable path="Control"]

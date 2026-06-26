@@ -10,6 +10,7 @@ enum Answers {A, B ,C, D}
 @onready var boss_health_bar: ProgressBar = $BossHealthBar
 @onready var boss_flash_component: FlashComponent = $BossFlashComponent
 @onready var player_flash_component: FlashComponent = $PlayerFlashComponent
+@onready var shake_camera_2d: Camera2D = $ShakeCamera2D
 
 
 @export var boss_max_health: int
@@ -78,6 +79,8 @@ func on_right_answer() -> void:
 func on_wrong_question() -> void:
 	Events.lose_life.emit()
 	player_flash_component._flash()
+	shake_camera_2d.add_trauma(randf_range(0.3, 0.5))
+
 	if Globals.Lives <= 0:
 		on_player_death()
 
