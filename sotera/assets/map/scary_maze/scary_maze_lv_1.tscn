@@ -243,6 +243,7 @@ disabled = true
 position = Vector2(2347, 289)
 
 [node name="ExitArea" type="Area2D" parent="." unique_id=127777131]
+visible = false
 position = Vector2(2397, 879)
 collision_mask = 2
 
