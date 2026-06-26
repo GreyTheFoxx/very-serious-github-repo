@@ -1,14 +1,15 @@
 [gd_scene format=3 uid="uid://bbqcbyvycwqrr"]
 
-[ext_resource type="PackedScene" uid="uid://cfpfhc2bmrb7b" path="res://assets/prefabs/gui.tscn" id="1_8cy1c"]
+[ext_resource type="PackedScene" uid="uid://bcnlbtdiicag" path="res://assets/prefabs/gui.tscn" id="1_8cy1c"]
 [ext_resource type="Texture2D" uid="uid://n3ucyq26j0qu" path="res://assets/raw/wheel-scene/stage.png" id="1_cooqm"]
 [ext_resource type="Script" uid="uid://fax1pcst4y2u" path="res://src/scripts/fortune_wheel_scene.gd" id="1_d7hmc"]
 [ext_resource type="PackedScene" uid="uid://m03c8gghqx32" path="res://assets/prefabs/Steven.tscn" id="4_4fco3"]
 [ext_resource type="PackedScene" uid="uid://qxxqamx1koeu" path="res://assets/prefabs/ui/CRT.tscn" id="6_4arlo"]
 [ext_resource type="PackedScene" uid="uid://ctimv56j7qqjo" path="res://assets/prefabs/lever.tscn" id="7_cooqm"]
 [ext_resource type="Script" uid="uid://c2p2in027g43g" path="res://src/scripts/wheel/FortuneWheelCurtainsClick.gd" id="7_d7hmc"]
-[ext_resource type="PackedScene" uid="uid://dxv6xfjtybe7l" path="res://assets/prefabs/curtain_prefab.tscn" id="8_dsjn4"]
+[ext_resource type="PackedScene" uid="uid://bwav05t3mcd2k" path="res://assets/prefabs/curtain_prefab.tscn" id="8_dsjn4"]
 [ext_resource type="PackedScene" uid="uid://c7kga4lmflwpr" path="res://assets/prefabs/ui/stage_player.tscn" id="9_8cy1c"]
+[ext_resource type="PackedScene" uid="uid://cchy7yoogu2m4" path="res://assets/prefabs/ui/FortuneWheelPauseUI.tscn" id="10_6vnka"]
 [ext_resource type="PackedScene" uid="uid://dmi2oqodqjn68" path="res://assets/prefabs/ui/trackers/mini_game_tracker.tscn" id="11_cl5pl"]
 [ext_resource type="Texture2D" uid="uid://bs33hui6wy3e7" path="res://assets/raw/wheel-scene/fortune_wheel/wheel_icon_maze.png" id="13_6vnka"]
 [ext_resource type="Texture2D" uid="uid://c6efpemuy42tc" path="res://assets/raw/wheel-scene/fortune_wheel/wheel_icon_bullets.png" id="14_4tcif"]
@@ -20,7 +21,7 @@
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_t6tgv"]
 distance = 3.9999962
 
-[node name="Root" type="Node" unique_id=21760760 node_paths=PackedStringArray("curtains")]
+[node name="Root" type="Node" unique_id=1266003346 node_paths=PackedStringArray("curtains")]
 script = ExtResource("1_d7hmc")
 curtains = NodePath("Group Curtains/Curtains")
 
@@ -85,10 +86,14 @@ script = ExtResource("7_d7hmc")
 curtains = NodePath("../Curtains")
 
 [node name="Poly2D" type="CollisionPolygon2D" parent="Group Curtains/Right Collision" unique_id=1598373200]
-position = Vector2(1936, -14)
+position = Vector2(1914.9932, -14)
+scale = Vector2(1.1844324, 1)
 polygon = PackedVector2Array(58, -68, 65, 1189, -84, 1182, -98, -72)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=619906068]
+
+[node name="PauseBox" parent="CanvasLayer" unique_id=617542604 node_paths=PackedStringArray("curtains") instance=ExtResource("10_6vnka")]
+curtains = NodePath("../../Group Curtains/Curtains")
 
 [node name="CRT" parent="CanvasLayer" unique_id=719073563 instance=ExtResource("6_4arlo")]
 
