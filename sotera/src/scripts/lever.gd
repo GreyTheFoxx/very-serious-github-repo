@@ -11,13 +11,14 @@ var player_in_area: bool = false
 var _pullable: bool = true # disabled at start because text dialogue
 	
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	label.visible = true
+	if _pullable:
+		label.show()
 	player_in_area = true
 	var tween = create_tween()
 	tween.tween_property(lever_sprite_animation.material, "shader_parameter/thickness", outline_thickness, .15)
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
-	label.visible = false
+	label.hide()
 	player_in_area = false
 	var tween = create_tween()
 	tween.tween_property(lever_sprite_animation.material, "shader_parameter/thickness", 0, .15)

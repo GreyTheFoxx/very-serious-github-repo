@@ -39,6 +39,9 @@ func _ready() -> void:
 	if Globals.Total_contracts > 0:
 		SoundPool.play_sound(SoundPool.AUDIENCE_CHEER)
 		
+	if Globals.gameover:
+		start_game_over()
+		
 func _process(delta: float) -> void:
 	match _game_state:
 		GameState.NORMAL: pass
@@ -49,6 +52,7 @@ func _process(delta: float) -> void:
 func check_curtains_closed() -> void:
 	if !curtains.closed(): return
 	jumpscare.hide_visibility()
+	Globals.gameover = true # enable cover text in main menu
 	Events.change_level(menu_game_over_mode)
 	_game_state = GameState.GAME_OVER
 	
@@ -105,8 +109,5 @@ func _input(e: InputEvent) -> void:
 
 func _on_dialogue_speech_ended() -> void:
 	dialogue.hide()
-	print("speech ended")
-	print(Globals.Total_contracts)
 	if Globals.Total_contracts == 3:
-		print("lets change to final boss")
 		Events.change_level("res://assets/scenes/FinalBoss.tscn")

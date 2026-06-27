@@ -6,6 +6,7 @@ extends Node
 var Total_contracts: int = 0
 var Lives: int = 4
 var lever_auto_enable: bool = false
+var gameover: bool = false
 
 func _ready() -> void:
 	Events.on_minigame_end.connect(increment_contracts)
@@ -14,6 +15,7 @@ func _ready() -> void:
 func take_damage() -> void:
 	Lives -= 1
 	if Lives == 0:
+		gameover = true
 		SoundPool.play_sound(SoundPool.MINIGAME_FAIL)
 		Events.change_level("res://assets/scenes/FortuneWheelScene.tscn")
 
