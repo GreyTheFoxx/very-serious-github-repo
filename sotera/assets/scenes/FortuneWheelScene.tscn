@@ -34,10 +34,9 @@
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_t6tgv"]
 distance = 3.9999962
 
-[node name="Root" type="Node" unique_id=1266003346 node_paths=PackedStringArray("curtains", "dialogue")]
+[node name="Root" type="Node" unique_id=1266003346 node_paths=PackedStringArray("curtains")]
 script = ExtResource("1_d7hmc")
 curtains = NodePath("Group Curtains/Curtains")
-dialogue = NodePath("CanvasLayer/Dialogue")
 
 [node name="World" type="Node" parent="." unique_id=1699964275]
 

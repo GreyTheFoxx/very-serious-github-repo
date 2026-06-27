@@ -1,7 +1,7 @@
 extends Node
 
 @export var curtains: CurtainSystem
-@export var dialogue: Dialogue
+@onready var dialogue: Dialogue = $"CanvasLayer/Dialogue"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
