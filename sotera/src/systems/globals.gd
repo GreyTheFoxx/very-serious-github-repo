@@ -6,6 +6,7 @@ extends Node
 var Total_contracts: int = 0
 var Lives: int = 4
 var lever_auto_enable: bool = false
+var gameover: bool = false
 
 func _ready() -> void:
 	Events.on_minigame_end.connect(increment_contracts)

@@ -49,6 +49,7 @@ func _process(delta: float) -> void:
 func check_curtains_closed() -> void:
 	if !curtains.closed(): return
 	jumpscare.hide_visibility()
+	Globals.gameover = true # enable cover text in main menu
 	Events.change_level(menu_game_over_mode)
 	_game_state = GameState.GAME_OVER
 	
