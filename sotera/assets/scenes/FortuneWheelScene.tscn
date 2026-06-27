@@ -111,7 +111,7 @@ metadata/_edit_lock_ = true
 [node name="FG" type="Node" parent="World" unique_id=1553769669]
 
 [node name="Wheel" parent="World/FG" unique_id=1465385523 node_paths=PackedStringArray("curtains", "minigame_tracker") instance=ExtResource("16_556sf")]
-position = Vector2(958, 705)
+position = Vector2(967, 811)
 scale = Vector2(0.8, 0.8)
 curtains = NodePath("../../../Group Curtains/Curtains")
 minigame_tracker = NodePath("../../../MiniGameTracker")
