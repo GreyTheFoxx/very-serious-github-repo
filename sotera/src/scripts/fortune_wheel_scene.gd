@@ -106,8 +106,5 @@ func _input(e: InputEvent) -> void:
 
 func _on_dialogue_speech_ended() -> void:
 	dialogue.hide()
-	print("speech ended")
-	print(Globals.Total_contracts)
 	if Globals.Total_contracts == 3:
-		print("lets change to final boss")
 		Events.change_level("res://assets/scenes/FinalBoss.tscn")
